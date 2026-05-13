@@ -1,6 +1,0 @@
-build/
-install/
-log/
-worlds/generated.world
-urdf/generated.world
-scripts/node_modules

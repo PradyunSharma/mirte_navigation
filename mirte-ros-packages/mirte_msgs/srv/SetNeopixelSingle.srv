@@ -1,4 +1,0 @@
-mirte_msgs/NeopixelColor color
-int8 led_index
----
-bool status
