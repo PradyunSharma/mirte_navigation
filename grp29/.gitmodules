@@ -1,0 +1,7 @@
+[submodule "src/m-explore-ros2"]
+	path = src/m-explore-ros2
+	url = https://github.com/robo-friends/m-explore-ros2.git
+[submodule "src/mirte_navigation"]
+	path = src/mirte_navigation
+	url = https://github.com/kas-lab/mirte_navigation.git
+	branch = physical_robot

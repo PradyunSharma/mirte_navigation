@@ -1,0 +1,13 @@
+build/
+install/
+log/
+*.pyc
+__pycache__/
+.ros/
+*.bag
+src/mirte-gazebo/
+src/mirte-ros-packages/
+src/ros2_astra_camera/
+src/rplidar_ros/
+src/mecanum_drive_controller/
+src/gazebo_grasp_fix/
