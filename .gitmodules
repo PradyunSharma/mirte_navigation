@@ -1,0 +1,21 @@
+[submodule "mirte_navigation"]
+	path = mirte_navigation
+	url = git@github.com:PradyunSharma/mirte_navigation.git
+[submodule "mirte-gazebo"]
+	path = mirte-gazebo
+	url = git@github.com:PradyunSharma/mirte-gazebo.git
+[submodule "mirte-ros-packages"]
+	path = mirte-ros-packages
+	url = git@github.com:PradyunSharma/mirte-ros-packages.git
+[submodule "gazebo_grasp_fix"]
+	path = gazebo_grasp_fix
+	url = https://github.com/RCPRG-ros-pkg/gazebo-grasp-plugin.git
+[submodule "clearpath_mecanum_drive_controller"]
+	path = clearpath_mecanum_drive_controller
+	url = git@github.com:clearpathrobotics/clearpath_mecanum_drive_controller.git
+[submodule "ros2_astra_camera"]
+	path = ros2_astra_camera
+	url = git@github.com:ArendJan/ros2_astra_camera.git
+[submodule "rplidar_ros"]
+	path = rplidar_ros
+	url = git@github.com:Slamtec/rplidar_ros.git
