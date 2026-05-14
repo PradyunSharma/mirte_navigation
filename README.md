@@ -22,7 +22,7 @@ source install/setup.bash
 **Terminal 1:**
 ```bash
 source /opt/ros/humble/setup.bash && source ~/MDP/install/setup.bash
-ros2 launch mirte_gazebo gazebo_mirte_master_empty.launch.xml world:=~/MDP/sim_world/temp_map
+ros2 launch mirte_gazebo gazebo_mirte_master_empty.launch.xml   world:=./src/grp29/sim_world/greenhouse.world
 ```
 
 **Terminal 2:**
