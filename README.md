@@ -58,5 +58,5 @@ This will run the SLAM and map can be visualized in the Rviz.
 To save map:
 ```bash
 cd src/grp29/maps
-ros2 run nav2_map_server map_saver_cli -f explored_map
+ros2 run nav2_map_server map_saver_cli -f ~/mdp/src/grp29/maps/greenhouse_map
 ```
