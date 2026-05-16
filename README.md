@@ -1,6 +1,9 @@
 # Group 29 - MDP RO47007 - TU Delft 2026
 ## Digital Twin for Smart Greenhouses
 
+## Introduction to the repository
+This repository contains our developed ROS2 packages (for example `grp29`) and ROS2 packages as submodules (including `clearpath_mecanum_drive_controller`,  `gazebo_grasp_fix`, `mirte-gazebo`, `mirte-ros-packages`, `mirte_navigation`, `ros2_astra_camera` and `rplidar_ros`). Out of all the sub modules, `mirte-gazebo`, `mirte_navigation` and `mirte-ros-packages` are forked thus their code can be modified. For rest of the modules, the code cannot be modifies as the are purely submodules. If you do modify their code, it would only be on your local system. In case it is required to modify their code, those submodules need to be forked and gid needs to point to the forked repositories.
+
 ## Prerequisites
 Have ROS2 and Gazebo installed as per course instructions.
 
