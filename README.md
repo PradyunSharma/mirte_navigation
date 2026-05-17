@@ -60,3 +60,21 @@ To save map:
 cd src/grp29/maps
 ros2 run nav2_map_server map_saver_cli -f ~/mdp/src/grp29/maps/greenhouse_map
 ```
+## Run waypoint follower
+These instructions allow the robot to follow waypoint in a saved map via nav2. \
+In first terminal
+```bash
+cd ~/mdp
+source install/setup.bash
+ros2 launch mirte_gazebo gazebo_mirte_master_empty.launch.xml world:=/home/"your_pc_name"/mdp/src/grp29/sim_world/greenhouse.world # Run the gazebo simulation first
+``` 
+Open a new terminal
+```bash
+cd ~/mdp
+source install/setup.bash
+ros2 launch grp29 navigation_waypoints.launch.py # Run the waypoint navigation launch file
+# Optionally you can also pass the custom files (map and waypoint list) at launch time
+ros2 launch grp29 navigation_waypoints.launch.py waypoints:=/path/to/my_waypoints.yaml map:=/path/to/my_map.yaml
+```
+`navigation_waypoints.launch.py` picks uo the saved map `mdp/src/grp29/sim_world/greenhouse.world` and the waypoints listed in `waypoints.yaml` file. Curretly, the waypoints are randomly places in the map, later these poins will be generated around the plant pots by a script. 
+

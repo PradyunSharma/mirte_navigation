@@ -1,0 +1,1 @@
+This directory `grp29` with in the package `grp29` contains the main logic scripts. Naming the directory (that contains the core logic scripts) same and the ros package directory is a convention.
