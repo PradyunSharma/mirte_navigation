@@ -1,5 +1,6 @@
 amcl:
   ros__parameters:
+    use_sim_time: True
     alpha1: 0.2
     alpha2: 0.2
     alpha3: 0.2
@@ -36,10 +37,17 @@ amcl:
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
-    scan_topic: scan
+    scan_topic: scan_filtered
+    set_initial_pose: true
+    initial_pose:
+      x: 1.0
+      y: 1.0
+      z: 0.1
+      yaw: 0.0
 
 bt_navigator:
   ros__parameters:
+    use_sim_time: True
     global_frame: map
     robot_base_frame: base_link
     odom_topic: odom
@@ -67,6 +75,7 @@ bt_navigator:
 
 controller_server:
   ros__parameters:
+    use_sim_time: True
     controller_frequency: 20.0
     costmap_update_timeout: 0.30
     min_x_velocity_threshold: 0.001
@@ -145,7 +154,7 @@ controller_server:
         cost_power: 1
         cost_weight: 3.81
         critical_cost: 300.0
-        consider_footprint: true
+        consider_footprint: false
         collision_cost: 1000000.0
         near_goal_distance: 1.0
         trajectory_point_step: 2
@@ -180,6 +189,8 @@ controller_server:
 local_costmap:
   local_costmap:
     ros__parameters:
+      use_sim_time: True
+      robot_radius: 0.15
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: odom
@@ -211,15 +222,15 @@ local_costmap:
           #   * User chosen topic is `scan`.
           #   * Topic will be remapped to `/tb4/scan` without `local_costmap`.
           #   * Use global topic `/scan` if you do not wish the node namespace to apply
-          topic: scan
+          topic: scan_filtered
           max_obstacle_height: 2.0
           clearing: True
           marking: True
           data_type: "LaserScan"
           raytrace_max_range: 3.0
-          raytrace_min_range: 0.0
+          raytrace_min_range: 0.15
           obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
+          obstacle_min_range: 0.15
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
@@ -228,6 +239,8 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
+      use_sim_time: True
+      robot_radius: 0.15
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
@@ -247,15 +260,15 @@ global_costmap:
           #   * User chosen topic is `scan`.
           #   * Topic will be remapped to `/tb4/scan` without `global_costmap`.
           #   * Use global topic `/scan` if you do not wish the node namespace to apply
-          topic: scan
+          topic: scan_filtered
           max_obstacle_height: 2.0
           clearing: True
           marking: True
           data_type: "LaserScan"
           raytrace_max_range: 3.0
-          raytrace_min_range: 0.0
+          raytrace_min_range: 0.15
           obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
+          obstacle_min_range: 0.15
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
@@ -274,6 +287,7 @@ global_costmap:
 
 map_saver:
   ros__parameters:
+    use_sim_time: True
     save_map_timeout: 5.0
     free_thresh_default: 0.25
     occupied_thresh_default: 0.65
@@ -281,6 +295,7 @@ map_saver:
 
 planner_server:
   ros__parameters:
+    use_sim_time: True
     expected_planner_frequency: 20.0
     planner_plugins: ["GridBased"]
     costmap_update_timeout: 1.0
@@ -292,6 +307,7 @@ planner_server:
 
 smoother_server:
   ros__parameters:
+    use_sim_time: True
     smoother_plugins: ["simple_smoother"]
     simple_smoother:
       plugin: "nav2_smoother::SimpleSmoother"
@@ -301,6 +317,7 @@ smoother_server:
 
 behavior_server:
   ros__parameters:
+    use_sim_time: True
     local_costmap_topic: local_costmap/costmap_raw
     global_costmap_topic: global_costmap/costmap_raw
     local_footprint_topic: local_costmap/published_footprint
@@ -334,6 +351,7 @@ behavior_server:
 
 waypoint_follower:
   ros__parameters:
+    use_sim_time: True
     loop_rate: 20
     stop_on_failure: false
     action_server_result_timeout: 900.0
@@ -345,6 +363,7 @@ waypoint_follower:
 
 velocity_smoother:
   ros__parameters:
+    use_sim_time: True
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
@@ -359,6 +378,7 @@ velocity_smoother:
 
 collision_monitor:
   ros__parameters:
+    use_sim_time: True
     base_frame_id: "base_footprint"
     odom_frame_id: "odom"
     cmd_vel_in_topic: "cmd_vel_smoothed"
@@ -383,13 +403,14 @@ collision_monitor:
     observation_sources: ["scan"]
     scan:
       type: "scan"
-      topic: "scan"
+      topic: "scan_filtered"
       min_height: 0.15
       max_height: 2.0
       enabled: True
 
 docking_server:
   ros__parameters:
+    use_sim_time: True
     controller_frequency: 50.0
     initial_perception_timeout: 5.0
     wait_charge_timeout: 5.0
@@ -443,6 +464,7 @@ docking_server:
 
 loopback_simulator:
   ros__parameters:
+    use_sim_time: True
     base_frame_id: "base_footprint"
     odom_frame_id: "odom"
     map_frame_id: "map"
