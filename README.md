@@ -44,6 +44,7 @@ source install/setup.bash
 While inside `mdp`:
 ```bash
 ros2 launch mirte_gazebo gazebo_mirte_master_empty.launch.xml world:=/home/"your_pc_name"/mdp/src/grp29/sim_world/greenhouse.world
+
 ```
 Note: You pass the location of `greenhouse.world` file as parameter.
 This will launch the gazebo simulation.
