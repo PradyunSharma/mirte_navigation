@@ -10,6 +10,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     pkg_mirte_navigation = get_package_share_directory('mirte_navigation')
+    group_29_path = get_package_share_directory('grp29')
 
     params_file = os.path.join(
         pkg_mirte_navigation, 'params', 'mirte_nav2_params.yaml'
@@ -21,7 +22,7 @@ def generate_launch_description():
         executable="scan_to_scan_filter_chain",
         parameters=[
             {"use_sim_time": True},
-            "/home/pradyun/mdp/src/grp29/laser_config/scan_filter.yaml",
+            f"{group_29_path}/laser_config/scan_filter.yaml",
         ],
         remappings=[
             ("scan", "/scan"),
@@ -37,7 +38,7 @@ def generate_launch_description():
         ])),
         launch_arguments={
             "use_sim_time": "true",
-            "slam_params_file": "/home/pradyun/mdp/src/grp29/slam_config/mirte_slam.yaml",
+            "slam_params_file": f"{group_29_path}/slam_config/mirte_slam.yaml",
         }.items()
     )
 
